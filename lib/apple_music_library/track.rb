@@ -2,13 +2,13 @@ require 'facets'
 
 module AppleMusicLibrary
   class Track
-    attr_reader :info, :artist, :album
+    attr_reader :artist, :album, :genre
 
-    ATTRIBUTES = ['Track ID', 
-                  'Name',
                   # 'Artist', The #artist, #album, and #genre methods return objects rather than strings and have methods like #artist_name to retrieve the strings.
                   # 'Album',
                   # 'Genre',
+    ATTRIBUTES = ['Track ID', 
+                  'Name',
                   'Kind',
                   'Size',
                   'Total Time',
@@ -31,10 +31,28 @@ module AppleMusicLibrary
                   'File Folder Count',
                   'Library Folder Count']
 
+    @@tracks = {}
+
     def initialize(info)
       @info = info
-      @artist = Artist.new(artist_name)
-      @album = Album.new(@artist, album_name)
+      @artist = Artist.find_or_create(artist_name)
+      @album = Album.find_or_create(@artist, album_name)
+      @genre = Genre.find_or_create(genre_name)
+
+      @artist.add_track(self)
+      @artist.add_album(@album)
+      @album.add_track(self)
+      @genre.add_track(self)
+      @@tracks[id] = self
+    end
+
+
+    def self.find(track_id)
+      @@tracks[track_id]
+    end
+
+    def self.all
+      @@tracks.values
     end
 
     def id
@@ -42,22 +60,21 @@ module AppleMusicLibrary
     end      
 
     def artist_name
-      info['Artist']
+      @info['Artist']
     end
 
     def album_name
-      info['Album']
+      @info['Album']
     end
 
     def genre_name
-      info['Genre']
+      @info['Genre']
     end
 
-    ATTRIBUTES.each do |attribute|
-      define_method(attribute.to_s.snakecase) do
-        info[attribute]
+    ATTRIBUTES.each do |track_attribute|
+      define_method(track_attribute.to_s.snakecase) do
+        @info[track_attribute]
       end
-
     end
 
     # def slug

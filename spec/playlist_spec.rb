@@ -2,16 +2,16 @@ RSpec.describe AppleMusicLibrary::Playlist do
 
   before do
     @library = AppleMusicLibrary.new(VALID_LIBRARY_PATH, VERBOSE)
+    @playlist = @library.playlists.first
   end
 
   it "stores and retrieves tracks from playlists" do
-    playlist = @library.playlists.first
-    expect(playlist.tracks.any?).to be true
-    expect(playlist.tracks.first).to be_a(AppleMusicLibrary::Track)
+    expect(@playlist.tracks.any?).to be true
+    expect(@playlist.tracks.first).to be_a(AppleMusicLibrary::Track)
   end
 
   it "retrieves a playlist by name" do
-    playlist = @library.playlist('XTC Favorites')
+    playlist = @library.playlist('XTC Favorites').first
     expect(playlist).to be_a(AppleMusicLibrary::Playlist)
     expect(playlist.tracks.any?).to be true
   end
