@@ -19,6 +19,8 @@ module AppleMusicLibrary
 
     attr_reader :info, :tracks
 
+    @@playlists = {}
+
     ATTRIBUTES = ['Name',
                   'Description',
                   'Playlist ID',
@@ -31,10 +33,23 @@ module AppleMusicLibrary
 
     def initialize(info, library)
       @info = info
+
+      return nil if folder?
+
       @library = library
       @tracks = []
 
       load_tracks
+
+      @@playlists[id] = self
+    end
+
+    def self.all
+      @@playlists.values
+    end
+
+    def self.find_by_name(playlist_name)
+      @@playlists.values.select{|p| p.name == playlist_name}
     end
 
     def id
