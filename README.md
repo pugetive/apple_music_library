@@ -1,8 +1,6 @@
 # AppleMusicLibrary
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/apple_music_library`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The `apple_music_library` gem offeres a ruby interface to the information stored in an iTunes / Apple Muisic `Library.xml` file, as can be generated with the app's menu option `File > Library > Export Library...`
 
 ## Installation
 
@@ -22,18 +20,36 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
 
-## Development
+# Create library
+library = AppleMusicLibrary.new('path/to/Library.xml')
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+# Count albums
+puts library.albums.count
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# Show tracks in a specific playlist
+playlist = library.playlist('XTC Favorites')
+playlist.tracks.each do |track|
+  puts track.name
+end
+
+# Count tracks by artist
+artist = library.artist('XTC')
+puts artist.tracks.count
+
+# Display track counts per genre
+library.genres.each do |genre|
+  puts "#{genre.tracks.count} #{genre.name}"
+end
+```
+All stored attributes are available via snake_cased methods on `Track` and `Playlist`. However, note that `#artist`, `#album`, and `#genre` are special cases, returning Ruby objects rather than their associated string values. Methods to return the string versions of these track attributes are provided as `track.artist_name`, `track.album_name`, and `track.genre_name`.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/apple_music_library.
+Bug reports and pull requests are welcome on GitHub at https://github.com/pugetive/apple-music-library.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
