@@ -5,7 +5,7 @@
 
 ## 0.6.0 - 2022-03-11
 ### Added
-- Ability to sort list top artists by play count
+- Ability to list top artists by play count
 
 ## 0.5.0 - 2022-03-11
 ### Added
