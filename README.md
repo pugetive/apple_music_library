@@ -2,6 +2,10 @@
 
 The `apple_music_library` gem offeres a ruby interface to the information stored in an iTunes / Apple Muisic `Library.xml` file, as can be generated with the app's menu option `File > Library > Export Library...`
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/86a57ad0904e4358dd02/maintainability)](https://codeclimate.com/github/pugetive/apple_music_library/maintainability)
+
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
