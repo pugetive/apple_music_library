@@ -1,7 +1,7 @@
 # Changelog
 
 ## [Unreleased]
-- Data models for Playlist Folders and their hierarchies
+- Ability to print out playlist folder hierarchy
 
 ## 0.4.0 - 2022-03-10
 ### Added
