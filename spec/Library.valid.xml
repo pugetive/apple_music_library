@@ -4,7 +4,7 @@
 <dict>
 	<key>Major Version</key><integer>1</integer>
 	<key>Minor Version</key><integer>1</integer>
-	<key>Date</key><date>2022-03-11T17:48:56Z</date>
+	<key>Date</key><date>2022-03-11T18:31:55Z</date>
 	<key>Application Version</key><string>1.1.6.37</string>
 	<key>Features</key><integer>5</integer>
 	<key>Show Content Ratings</key><true/>
@@ -1733,6 +1733,7 @@
 			<key>Rating</key><integer>100</integer>
 			<key>Album Rating</key><integer>80</integer>
 			<key>Album Rating Computed</key><true/>
+			<key>Loved</key><true/>
 			<key>Normalization</key><integer>3594</integer>
 			<key>Persistent ID</key><string>CDDBE82ECDB7C10F</string>
 			<key>Track Type</key><string>File</string>

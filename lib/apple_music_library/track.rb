@@ -24,6 +24,7 @@ module AppleMusicLibrary
                   'Rating',
                   'Album Rating',
                   'Album Rating Computed',
+                  'Loved',
                   'Normalization',
                   'Persistent ID',
                   'Track Type',
@@ -55,6 +56,10 @@ module AppleMusicLibrary
       @@tracks.values
     end
 
+    def self.loved
+      @loved ||= self.all.select{|t| t.loved?}
+    end
+
     def id
       track_id
     end      
@@ -69,6 +74,14 @@ module AppleMusicLibrary
 
     def genre_name
       @info['Genre']
+    end
+
+    def star_rating
+      rating / 20
+    end
+
+    def loved?
+      loved
     end
 
     ATTRIBUTES.each do |track_attribute|

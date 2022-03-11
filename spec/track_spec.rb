@@ -31,4 +31,17 @@ RSpec.describe AppleMusicLibrary::Track do
     expect(@sample_track.album.tracks.count).to be > 0
   end
 
+  it 'can display ratings as stored 100-point number or as star ratings' do
+    expect(@sample_track.rating).to be_a(Integer)
+    expect(@sample_track.rating).to be <= 100
+    expect(@sample_track.rating % 20).to be 0
+    expect(@sample_track.star_rating).to be_a(Integer)
+    expect(@sample_track.star_rating).to be <= 5
+  end
+
+  it 'can filter for tracks that have been "loved"' do
+    expect(@library.tracks(:loved).any?).to be true
+    expect(@library.tracks(:loved).sample.loved?).to be true
+  end
+
 end
