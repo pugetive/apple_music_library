@@ -12,7 +12,7 @@ RSpec.describe AppleMusicLibrary::Artist do
   end
 
   it "orders artist albums chronologically" do
-    puts "#{@artist.name} albums: #{@artist.albums.size}"
+    # puts "#{@artist.name} albums: #{@artist.albums.size}"
     expect(@artist.albums.any?).to be true
     expect(@artist.albums.first.year).to be <= @artist.albums.last.year
   end
