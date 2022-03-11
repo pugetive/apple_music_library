@@ -44,8 +44,8 @@ module AppleMusicLibrary
       @albums ||= Album.all
     end
 
-    def artists
-      @artists ||= Artist.all
+    def artists(filter = nil, limit = nil)
+      filter.present? ? Artist.send(filter, limit) : Artist.all
     end
 
     def artist(artist_name)

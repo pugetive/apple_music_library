@@ -15,6 +15,14 @@ module AppleMusicLibrary
       @@artists.values
     end
 
+    def self.most_played(limit = 20)
+      if limit.nil?
+        self.all.sort_by(&:play_count).reverse
+      else
+        self.all.sort_by(&:play_count).reverse.take(limit)
+      end
+    end
+
     def self.find_or_create(name)
       if @@artists[name]
         return @@artists[name]
@@ -47,6 +55,10 @@ module AppleMusicLibrary
 
     def tracks
       @tracks
+    end
+
+    def play_count
+      tracks.map(&:play_count).sum
     end
 
   end
