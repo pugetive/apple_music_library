@@ -11,7 +11,7 @@ RSpec.describe AppleMusicLibrary::Playlist do
   end
 
   it "retrieves a playlist by name" do
-    playlist = @library.playlist('XTC Favorites').first
+    playlist = @library.playlist('XTC Favorites')
     expect(playlist).to be_a(AppleMusicLibrary::Playlist)
     expect(playlist.tracks.any?).to be true
   end

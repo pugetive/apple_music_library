@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Todd Gehman"]
   spec.email = ["github@pugetive.com"]
 
-  spec.summary = "Provides a ruby OO interface to the information stored in an Apple Music (formerly iTunes) Library xml file."
+  spec.summary = "Provides a Ruby interface to the information stored in an Apple Music (formerly iTunes) Library xml file."
   # spec.description = "TODO: Write a longer description or delete this line."
   spec.homepage = "https://github.com/pugetive/apple_music_library"
   spec.license = "MIT"
