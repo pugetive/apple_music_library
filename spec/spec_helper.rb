@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 # frozen_string_literal: true
 
 require "apple_music_library"
