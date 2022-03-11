@@ -44,6 +44,9 @@ end
 artist = library.artist('XTC')
 puts artist.tracks.count
 
+# Get favorite tracks by this artists
+favorite_tracks = artist.tracks.select{|t| t.loved? || t.star_rating > 3}
+
 # Display track counts per genre
 library.genres.each do |genre|
   puts "#{genre.tracks.count} #{genre.name}"
