@@ -3,7 +3,11 @@
 ## [Unreleased]
 - Ability to print out playlist folder hierarchy
 
-## 0.4.0 - 2022-03-10
+## 0.5.0 - 2022-03-11
+### Added
+- Basic functionality for track ratings via the #rating, #star_rating, and #loved
+
+## 0.4.0 - 2022-03-11
 ### Added
 - Basic functionality for Playlist Folders
 ### Fixed

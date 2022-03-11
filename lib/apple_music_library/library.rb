@@ -76,8 +76,8 @@ module AppleMusicLibrary
       PlaylistFolder.find_by_name(playlist_folder_name)
     end
 
-    def tracks
-      @tracks ||= Track.all
+    def tracks(filter = nil)
+      filter.present? ? Track.send(filter) : Track.all
     end
 
     def track(track_id)
