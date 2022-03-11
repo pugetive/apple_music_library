@@ -23,4 +23,9 @@ RSpec.describe AppleMusicLibrary::Artist do
     expect(artist.tracks.any?).to be true
   end
 
+  it "sorts artists by most to least played" do
+    expect(@library.artists(:most_played).any?).to be true
+    expect(@library.artists(:most_played).first.play_count).to be > @library.artists(:most_played).last.play_count
+  end
+
 end
