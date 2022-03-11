@@ -28,8 +28,14 @@ library = AppleMusicLibrary.new('path/to/Library.xml')
 # Count albums
 puts library.albums.count
 
+# Show playlist inside playlist folder
+playlist_folder = library.playlist_folder('Folder for Testing')
+playlist_folder.playlists.each do |playlist|
+  puts playlist.name
+end
+
 # Show tracks in a specific playlist
-playlist = library.playlist('XTC Favorites').first
+playlist = library.playlist('XTC Favorites')
 playlist.tracks.each do |track|
   puts track.name
 end

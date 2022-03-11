@@ -1,17 +1,3 @@
-# <key>Name</key><string>Non-XTC</string>
-# <key>Description</key><string></string>
-# <key>Playlist ID</key><integer>79359</integer>
-# <key>Playlist Persistent ID</key><string>59C95825DF1F0DCC</string>
-# <key>All Items</key><true/>
-# <key>Smart Info</key>
-# <data>
-# AQEAAwAAAAIAAAAZAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-# AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-# AAAAAA==
-# </data>
-# <key>Smart Criteria</key>
-# <data>
-
 require 'facets'
 
 module AppleMusicLibrary
@@ -25,18 +11,20 @@ module AppleMusicLibrary
                   'Description',
                   'Playlist ID',
                   'Playlist Persistent ID',
+                  'Parent Persistent ID',
                   'All Items',
                   'Smart Info',
                   'Smart Criteria',
                   'Playlist Items',
                   'Folder']
 
-    def initialize(info, library)
+    def initialize(info)
       @info = info
 
-      return nil if folder?
+      if folder?
+        return PlaylistFolder.new(info)
+      end
 
-      @library = library
       @tracks = []
 
       load_tracks
@@ -49,11 +37,15 @@ module AppleMusicLibrary
     end
 
     def self.find_by_name(playlist_name)
-      @@playlists.values.select{|p| p.name == playlist_name}
+      results = @@playlists.values.select{|p| p.name == playlist_name}
+      if results.size == 1
+        return results.first
+      end
+      results
     end
 
     def id
-      playlist_id
+      playlist_persistent_id
     end                
 
     ATTRIBUTES.each do |attribute|
@@ -72,7 +64,7 @@ module AppleMusicLibrary
       if playlist_items and playlist_items.any?
         playlist_items.each do |playlist_item|
           track_id = playlist_item['Track ID']
-          track = @library.track(track_id)
+          track = Track.find(track_id)
           @tracks << track
         end
       end
@@ -81,3 +73,18 @@ module AppleMusicLibrary
     
   end
 end
+
+# <key>Name</key><string>Non-XTC</string>
+# <key>Description</key><string></string>
+# <key>Playlist ID</key><integer>79359</integer>
+# <key>Playlist Persistent ID</key><string>59C95825DF1F0DCC</string>
+# <key>All Items</key><true/>
+# <key>Smart Info</key>
+# <data>
+# AQEAAwAAAAIAAAAZAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+# AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+# AAAAAA==
+# </data>
+# <key>Smart Criteria</key>
+# <data>
+
