@@ -1,10 +1,11 @@
 module AppleMusicLibrary
   class TrackCollection
 
-    attr_reader :tracks
+    attr_reader :name, :tracks
 
-    def initialize(*args)
+    def initialize(name, *args)
       @tracks = []
+      @name = name
     end
 
     def add_track(track)
