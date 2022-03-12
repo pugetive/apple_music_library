@@ -1,16 +1,18 @@
+require_relative 'track_collection'
+
 module AppleMusicLibrary
-  class Album
+  class Album < TrackCollection
     attr_reader :artist
 
 
-    attr_reader :artist, :album_name, :tracks
+    attr_reader :artist
 
     @@albums = {}
 
     def initialize(artist, album_name)
       @artist = artist
       @album_name = album_name
-      @tracks = []
+      super
     end
 
     def self.all
@@ -29,12 +31,19 @@ module AppleMusicLibrary
       "#{artist.name}-#{album_name}"
     end
 
-    def add_track(track)
-      @tracks << track
+    def name
+      @album_name
     end
 
     def year
       @year ||= @tracks.sort_by(&:year).last.year
+    end
+
+    def dump
+      puts "#{artist.name} - #{name}"
+      tracks.each do |track|
+        puts "\t#{track.name}"
+      end
     end
 
   end

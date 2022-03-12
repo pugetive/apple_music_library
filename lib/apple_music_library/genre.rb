@@ -1,13 +1,13 @@
 module AppleMusicLibrary
-  class Genre
+  class Genre < TrackCollection
 
-    attr_reader :name, :tracks
+    attr_reader :name
 
     @@genres = {}
 
     def initialize(name)
       @name = name
-      @tracks = []
+      super
     end
 
     def self.all
@@ -23,12 +23,6 @@ module AppleMusicLibrary
 
     def self.find_by_name(name)
       @@genres[name]
-    end
-
-    def add_track(track)
-      unless tracks.include?(track)
-        @tracks << track
-      end
     end
 
   end

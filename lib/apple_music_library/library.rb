@@ -92,6 +92,10 @@ module AppleMusicLibrary
       tracks.any?
     end
 
+    def rated_tracks
+      tracks.select{|t| t.rated?}
+    end
+
     private
 
     def extract_plist_info

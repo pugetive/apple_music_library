@@ -38,6 +38,9 @@ module AppleMusicLibrary
       @info = info
       @artist = Artist.find_or_create(artist_name)
       @album = Album.find_or_create(@artist, album_name)
+      # if name.match(/Humble.*demo/)
+      #   puts "Adding track #{name} to album #{album_name}"
+      # end
       @genre = Genre.find_or_create(genre_name)
 
       @artist.add_track(self)
@@ -78,6 +81,10 @@ module AppleMusicLibrary
 
     def star_rating
       rating / 20
+    end
+
+    def rated?
+      rating > 0 and rating <= 100
     end
 
     def loved?
