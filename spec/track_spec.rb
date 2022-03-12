@@ -31,6 +31,10 @@ RSpec.describe AppleMusicLibrary::Track do
     expect(@sample_track.album.tracks.count).to be > 0
   end
 
+  it 'can check if a track has been rated' do
+    expect(@sample_track.rated?).to be_in([true, false])
+  end
+
   it 'can display ratings as stored 100-point number or as star ratings' do
     expect(@sample_track.rating).to be_a(Integer)
     expect(@sample_track.rating).to be <= 100

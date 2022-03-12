@@ -1,9 +1,10 @@
 require 'facets'
+require_relative 'track_collection'
 
 module AppleMusicLibrary
-  class Playlist
+  class Playlist < TrackCollection
 
-    attr_reader :info, :tracks
+    attr_reader :info
 
     @@playlists = {}
 
@@ -25,7 +26,7 @@ module AppleMusicLibrary
         return PlaylistFolder.new(info)
       end
 
-      @tracks = []
+      super
 
       load_tracks
 
