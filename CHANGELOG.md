@@ -3,6 +3,10 @@
 ## [Unreleased]
 - Ability to print out playlist folder hierarchy
 
+## 0.8.0 - 2022-03-12
+### Added
+- Ability to sort artists by track count and album count
+
 ## 0.7.0 - 2022-03-12
 ### Added
 - Average star ratings for track collectsion (albums, playlists, genres)

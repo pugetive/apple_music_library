@@ -56,6 +56,16 @@ library.artists(:most_played).each do |artist|
   puts "#{artist.play_count} :: #{artist.name}"
 end
 
+# List out artists with the most tracks
+library.artists(:most_tracks).each do |artist|
+  puts "#{artist.track_count} :: #{artist.name}"
+end
+
+# List out artists with the most albums
+library.artists(:most_albums).each do |artist|
+  puts "#{artist.album_count} :: #{artist.name}"
+end
+
 # Display track counts per genre
 library.genres.each do |genre|
   puts "#{genre.tracks.count} #{genre.name}"
