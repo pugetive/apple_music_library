@@ -4,14 +4,10 @@ module AppleMusicLibrary
   class Album < TrackCollection
     attr_reader :artist
 
-
-    attr_reader :artist
-
     @@albums = {}
 
-    def initialize(artist, album_name)
+    def initialize(album_name, artist)
       @artist = artist
-      @album_name = album_name
       super
     end
 
@@ -24,7 +20,7 @@ module AppleMusicLibrary
       if @@albums[key]
         return @@albums[key]
       end
-      @@albums[key] = self.new(artist, album_name)
+      @@albums[key] = self.new(album_name, artist)
     end
 
     def id

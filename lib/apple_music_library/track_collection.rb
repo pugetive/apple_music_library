@@ -1,10 +1,28 @@
 module AppleMusicLibrary
   class TrackCollection
 
-    attr_reader :tracks
+    attr_reader :name, :tracks
 
-    def initialize(*args)
+    @@track_collections = {}
+
+    def initialize(name, *args)
       @tracks = []
+      @name = name
+    end
+
+    def self.all
+      @@track_collections[token].values
+    end
+
+    def self.find_by_name(lookup_name)
+      @@track_collections[token][lookup_name]
+    end
+
+    def self.find_or_create(lookup_name)
+      unless @@track_collections[token]
+        @@track_collections[token] = {}
+      end
+      @@track_collections[token][lookup_name] = self.new(lookup_name)
     end
 
     def add_track(track)
@@ -20,6 +38,14 @@ module AppleMusicLibrary
 
     def rated_tracks
       @rated_tracks ||= tracks.select{|t| t.rated?}
+    end
+
+    def self.token
+      self.class.name
+    end
+
+    def token
+      self.class.token
     end
 
   end
