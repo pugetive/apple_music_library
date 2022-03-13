@@ -3,7 +3,7 @@
 ## [Unreleased]
 - Ability to print out playlist folder hierarchy
 
-## 0.8.0 - 2022-03-12
+## 0.8.0 - 2022-03-13
 ### Added
 - Ability to sort artists by track count and album count
 
