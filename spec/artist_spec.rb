@@ -38,4 +38,9 @@ RSpec.describe AppleMusicLibrary::Artist do
     expect(@library.artists(:most_albums).first.album_count).to be > @library.artists(:most_albums).last.album_count
   end
 
+  it "is associated with genres" do
+    artist = @library.artist('XTC')
+    expect(artist.genres.any?).to be true
+    expect(artist.genres.first).to be_a(AppleMusicLibrary::Genre)
+  end
 end

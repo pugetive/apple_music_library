@@ -44,9 +44,14 @@ playlist.tracks.each do |track|
   puts track.name
 end
 
-# Count tracks by artist
+# Count tracks by an artist
 artist = library.artist('XTC')
 puts artist.tracks.count
+
+# List genres associated with the artist
+artist.genres.each do |genre|
+  puts genre.name
+end
 
 # Get favorite tracks by this artist
 favorite_tracks = artist.tracks.select{|t| t.loved? || t.star_rating > 3}
@@ -68,8 +73,9 @@ end
 
 # Display track counts per genre
 library.genres.each do |genre|
-  puts "#{genre.tracks.count} #{genre.name}"
+  puts "#{genre.track_count} #{genre.name}"
 end
+
 ```
 All stored attributes are available via snake_cased methods on `Track` and `Playlist`. However, note that `#artist`, `#album`, and `#genre` are special cases, returning Ruby objects rather than their associated string values. Methods to return the string versions of these track attributes are provided as `track.artist_name`, `track.album_name`, and `track.genre_name`.
 

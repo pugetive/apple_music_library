@@ -17,6 +17,9 @@ RSpec.describe AppleMusicLibrary::Genre do
     expect(genre.tracks.any?).to be true
   end
 
+  it "has a track_count value" do
+    expect(@library.genres.first.track_count).to be > 0
+  end
 
 end
 
