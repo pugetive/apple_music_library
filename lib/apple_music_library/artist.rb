@@ -73,6 +73,10 @@ module AppleMusicLibrary
       tracks.map(&:play_count).sum
     end
 
+    def genres
+      @genres ||= tracks.map(&:genre).uniq
+    end
+
     protected
 
     def self.sorted_set(sort_by_method, limit)

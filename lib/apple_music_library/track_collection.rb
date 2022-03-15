@@ -29,6 +29,10 @@ module AppleMusicLibrary
       @tracks << track
     end
 
+    def track_count
+      @track_count ||= tracks.count
+    end
+
     def star_rating
       return nil if rated_tracks.empty?      
       rated_tracks.map(&:star_rating).sum / rated_tracks.size
