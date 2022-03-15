@@ -3,6 +3,10 @@
 ## [Unreleased]
 - Ability to print out playlist folder hierarchy
 
+## 0.9.0 - 2022-03-15
+### Added
+- Ability to get genres associated with an artist
+
 ## 0.8.0 - 2022-03-13
 ### Added
 - Ability to sort artists by track count and album count
