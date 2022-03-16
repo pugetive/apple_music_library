@@ -43,6 +43,11 @@ module AppleMusicLibrary
       # end
       @genre = Genre.find_or_create(genre_name)
 
+      if year_name.present?
+        @year = Year.find_or_create(year_name)
+        @year.add_track(self)
+      end
+
       @artist.add_track(self)
       @artist.add_album(@album)
       @album.add_track(self)
@@ -77,6 +82,10 @@ module AppleMusicLibrary
 
     def genre_name
       @info['Genre']
+    end
+
+    def year_name
+      @info['Year']
     end
 
     def star_rating

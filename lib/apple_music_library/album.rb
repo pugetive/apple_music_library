@@ -42,5 +42,9 @@ module AppleMusicLibrary
       end
     end
 
+    def self.token
+      :album
+    end
+
   end
 end

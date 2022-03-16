@@ -59,6 +59,10 @@ module AppleMusicLibrary
       folder.present?
     end
 
+    def token
+      :playlist
+    end
+
     private
 
     def load_tracks
