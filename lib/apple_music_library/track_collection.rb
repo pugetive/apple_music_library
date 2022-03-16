@@ -7,7 +7,7 @@ module AppleMusicLibrary
 
     def initialize(name, *args)
       @tracks = []
-      @name = name
+      @name = name.present? ? name : 'Unknown'
     end
 
     def self.all
@@ -19,13 +19,23 @@ module AppleMusicLibrary
     end
 
     def self.find_or_create(lookup_name)
+      if lookup_name.blank?
+        lookup_name = 'Unknown'
+      end
+      # puts "Finding or creating #{token}: #{lookup_name}"
       unless @@track_collections[token]
         @@track_collections[token] = {}
       end
+      if @@track_collections[token][lookup_name]
+        # puts "FOUND"
+        return @@track_collections[token][lookup_name]
+      end
+      # puts "CREATING"
       @@track_collections[token][lookup_name] = self.new(lookup_name)
     end
 
     def add_track(track)
+      # puts "Adding #{track.name} to #{self.class.token} #{name}"
       @tracks << track
     end
 
@@ -44,13 +54,6 @@ module AppleMusicLibrary
       @rated_tracks ||= tracks.select{|t| t.rated?}
     end
 
-    def self.token
-      self.class.name
-    end
-
-    def token
-      self.class.token
-    end
 
   end
 end

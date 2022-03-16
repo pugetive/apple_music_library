@@ -3,6 +3,12 @@
 ## [Unreleased]
 - Ability to print out playlist folder hierarchy
 
+## 0.10.0 - 2022-03-15
+### Fixed
+- Fixed incorrect handling of tracks when added to track collections
+### Added
+- Added Year model to retrieve tracks and track counts per year of release
+
 ## 0.9.0 - 2022-03-15
 ### Added
 - Ability to get genres associated with an artist

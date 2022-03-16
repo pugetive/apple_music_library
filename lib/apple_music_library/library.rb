@@ -4,6 +4,7 @@ require_relative 'genre'
 require_relative 'playlist'
 require_relative 'playlist_folder'
 require_relative 'track'
+require_relative 'year'
 require_relative "utils"
 require 'plist'
 
@@ -82,6 +83,10 @@ module AppleMusicLibrary
 
     def track(track_id)
       Track.find(track_id)
+    end
+
+    def years
+      @years ||= Year.all
     end
 
     def valid?
