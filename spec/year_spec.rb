@@ -11,8 +11,4 @@ RSpec.describe AppleMusicLibrary::Year do
     expect(year.track_count).to be > 0
   end
 
-  it 'prints a list of years with track counts' do
-    AppleMusicLibrary::Year.dump
-  end
-
 end
