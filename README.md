@@ -76,6 +76,12 @@ library.genres.each do |genre|
   puts "#{genre.track_count} #{genre.name}"
 end
 
+# Display track counts per year
+library.years.each do |year|
+  puts "#{year.track_count} #{year.name}"
+end
+
+
 ```
 All stored attributes are available via snake_cased methods on `Track` and `Playlist`. However, note that `#artist`, `#album`, and `#genre` are special cases, returning Ruby objects rather than their associated string values. Methods to return the string versions of these track attributes are provided as `track.artist_name`, `track.album_name`, and `track.genre_name`.
 
