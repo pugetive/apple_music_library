@@ -1,11 +1,4 @@
-require_relative 'album'
-require_relative 'artist'
-require_relative 'genre'
-require_relative 'playlist'
-require_relative 'playlist_folder'
-require_relative 'track'
-require_relative 'year'
-require_relative "utils"
+Dir[File.join(__dir__, '.', '*.rb')].each { |file| require file }
 require 'plist'
 
 module AppleMusicLibrary
@@ -87,6 +80,14 @@ module AppleMusicLibrary
 
     def years
       @years ||= Year.all
+    end
+
+    def decades
+      @decades ||= Decade.all
+    end
+
+    def decades_report
+      Decade.report
     end
 
     def valid?
