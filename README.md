@@ -32,7 +32,7 @@ library = AppleMusicLibrary.new('path/to/Library.xml')
 # Count albums
 puts library.albums.count
 
-# Show playlist inside playlist folder
+# Show playlists contained in a playlist folder
 playlist_folder = library.playlist_folder('Folder for Testing')
 playlist_folder.playlists.each do |playlist|
   puts playlist.name
@@ -88,10 +88,10 @@ end
 
 # Print a report on all decades in the library
 #   e.g.
-# 1990-1999 - 7217 tracks on 1030 albums
-# 2000-2009 - 9083 tracks on 1876 albums
-# 2010-2019 - 4729 tracks on 1046 albums
-# 2020-2029 - 1074 tracks on 455 albums
+# 1970-1979 - 336 tracks on 10 albums
+# 1980-1989 - 816 tracks on 16 albums
+# 1990-1999 - 300 tracks on 8 albums
+# 2000-2009 - 110 tracks on 5 albums
 library.decades_report
 
 
