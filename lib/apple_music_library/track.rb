@@ -46,6 +46,9 @@ module AppleMusicLibrary
       if year_name.present?
         @year = Year.find_or_create(year_name)
         @year.add_track(self)
+
+        @decade = Decade.find_or_create_for(year_name)
+        @decade.add_track(self)
       end
 
       @artist.add_track(self)

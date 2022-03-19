@@ -43,6 +43,10 @@ module AppleMusicLibrary
       @track_count ||= tracks.count
     end
 
+    def album_count
+      @ablum_count ||= tracks.map(&:album).uniq.count
+    end
+
     def star_rating
       return nil if rated_tracks.empty?      
       rated_tracks.map(&:star_rating).sum / rated_tracks.size

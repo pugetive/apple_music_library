@@ -81,6 +81,20 @@ library.years.each do |year|
   puts "#{year.track_count} #{year.name}"
 end
 
+# Display track counts per decade
+library.decades.each do |decade|
+  puts "#{decade.track_count} #{decade.name}"
+end
+
+# Print a report on all decades in the library
+#   e.g.
+# 1990-1999 - 7217 tracks on 1030 albums
+# 2000-2009 - 9083 tracks on 1876 albums
+# 2010-2019 - 4729 tracks on 1046 albums
+# 2020-2029 - 1074 tracks on 455 albums
+library.decades_report
+
+
 
 ```
 All stored attributes are available via snake_cased methods on `Track` and `Playlist`. However, note that `#artist`, `#album`, and `#genre` are special cases, returning Ruby objects rather than their associated string values. Methods to return the string versions of these track attributes are provided as `track.artist_name`, `track.album_name`, and `track.genre_name`.
