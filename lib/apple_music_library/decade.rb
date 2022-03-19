@@ -4,7 +4,7 @@ module AppleMusicLibrary
   class Decade < TrackCollection
 
     def self.report
-      self.all.each do |decade|
+      self.all.sort_by{|d| d.name}.each do |decade|
         puts "#{decade.name} - #{decade.track_count} tracks on #{decade.album_count} albums"
       end
     end

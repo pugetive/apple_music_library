@@ -3,6 +3,10 @@
 ## [Unreleased]
 - Ability to print out playlist folder hierarchy
 
+## 0.11.0 - 2022-03-19
+### Added
+- Added Decade model to retrieve track and album info per decade
+
 ## 0.10.0 - 2022-03-16
 ### Fixed
 - Fixed incorrect handling of tracks when added to track collections
