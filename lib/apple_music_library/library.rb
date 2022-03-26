@@ -54,8 +54,9 @@ module AppleMusicLibrary
       Genre.find_by_name(genre_name)
     end
 
-    def playlists
-      @playlists ||= Playlist.all
+    def playlists(filter = nil)
+      return Playlist.all unless filter
+      Playlist.send(filter)
     end
 
     def playlist(playlist_name)

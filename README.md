@@ -38,6 +38,22 @@ playlist_folder.playlists.each do |playlist|
   puts playlist.name
 end
 
+# List all playlists
+library.playlists.each do |playlist|
+  puts playlist.name
+end
+
+# List only 'smart' playlists
+library.playlists(:smart).each do |playlist|
+  puts playlist.name
+end
+
+# List all regular (not 'smart') playlists
+library.playlists(:regular).each do |playlist|
+  puts playlist.name
+end
+
+
 # Show tracks in a specific playlist
 playlist = library.playlist('XTC Favorites')
 playlist.tracks.each do |track|

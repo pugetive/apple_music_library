@@ -22,5 +22,16 @@ RSpec.describe AppleMusicLibrary::Playlist do
     end
   end
 
+  it "distinguishes between smart playlists and regular playlists" do
+    @library.playlists(:smart).each do |playlist|
+      expect(playlist.smart?).to be true
+    end
+
+    @library.playlists(:regular).each do |playlist|
+      expect(playlist.smart?).to be false
+    end
+
+  end
+
 
 end

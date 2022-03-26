@@ -3,6 +3,10 @@
 ## [Unreleased]
 - Ability to print out playlist folder hierarchy
 
+## 0.12.0 - 2022-03-26
+### Added
+- Added handling for smart versus regular playlists
+
 ## 0.11.0 - 2022-03-19
 ### Added
 - Added Decade model to retrieve track and album info per decade
