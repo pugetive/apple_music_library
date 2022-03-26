@@ -3,6 +3,10 @@
 ## [Unreleased]
 - Ability to print out playlist folder hierarchy
 
+## 0.13.2 - 2022-03-16
+### Fixed
+- Fixed bug where tracks with empty artist names would throw an exception
+
 ## 0.13.1 - 2022-03-16
 ### Fixed
 - Now strips leading/trailing whitespace from artist and track names
