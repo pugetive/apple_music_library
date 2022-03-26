@@ -37,6 +37,14 @@ module AppleMusicLibrary
       @@playlists.values
     end
 
+    def self.smart
+      @@playlists.values.select{|p| p.smart?}
+    end
+
+    def self.regular
+      @@playlists.values.select{|p| !p.smart?}
+    end
+
     def self.find_by_name(playlist_name)
       results = @@playlists.values.select{|p| p.name == playlist_name}
       if results.size == 1
@@ -57,6 +65,10 @@ module AppleMusicLibrary
 
     def folder?
       folder.present?
+    end
+
+    def smart?
+      smart_info.present?
     end
 
     def token
