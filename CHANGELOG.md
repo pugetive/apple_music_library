@@ -3,6 +3,10 @@
 ## [Unreleased]
 - Ability to print out playlist folder hierarchy
 
+## 0.13.0 - 2022-03-26
+### Added
+- Added handling for system verses user-created playlists
+
 ## 0.12.0 - 2022-03-26
 ### Added
 - Added handling for smart versus regular playlists

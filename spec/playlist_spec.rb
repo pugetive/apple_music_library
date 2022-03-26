@@ -30,8 +30,16 @@ RSpec.describe AppleMusicLibrary::Playlist do
     @library.playlists(:regular).each do |playlist|
       expect(playlist.smart?).to be false
     end
-
   end
 
+  it "distinguishes between Apple-created (system) playlists and regular playlists" do
+    @library.playlists(:regular).each do |playlist|
+      expect(playlist.system?).to be false
+    end
+
+    @library.playlists(:system).each do |playlist|
+      expect(playlist.system?).to be true
+    end
+  end
 
 end

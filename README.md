@@ -49,6 +49,7 @@ library.playlists(:smart).each do |playlist|
 end
 
 # List all regular (not 'smart') playlists
+# This filter also excludes apple-created playlists (e.g. the 'Library' and 'Downloaded' playlists)
 library.playlists(:regular).each do |playlist|
   puts playlist.name
 end

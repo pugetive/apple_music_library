@@ -8,16 +8,25 @@ module AppleMusicLibrary
 
     @@playlists = {}
 
-    ATTRIBUTES = ['Name',
-                  'Description',
-                  'Playlist ID',
-                  'Playlist Persistent ID',
-                  'Parent Persistent ID',
-                  'All Items',
-                  'Smart Info',
-                  'Smart Criteria',
-                  'Playlist Items',
-                  'Folder']
+    ATTRIBUTES = [
+      'Name',
+      'Description',
+      'Playlist ID',
+      'Playlist Persistent ID',
+      'Parent Persistent ID',
+      'All Items',
+      'Smart Info',
+      'Smart Criteria',
+      'Playlist Items',
+      'Folder'
+    ]
+
+    SYSTEM_PLAYLISTS = [
+      'Downloaded',
+      'Library',
+      'Music',
+      'Recently Played'
+    ]
 
     def initialize(info)
       @info = info
@@ -42,7 +51,11 @@ module AppleMusicLibrary
     end
 
     def self.regular
-      @@playlists.values.select{|p| !p.smart?}
+      @@playlists.values.select{|p| !p.smart? and !p.system?}
+    end
+
+    def self.system
+      @@playlists.values.select{|p| p.system?}
     end
 
     def self.find_by_name(playlist_name)
@@ -69,6 +82,10 @@ module AppleMusicLibrary
 
     def smart?
       smart_info.present?
+    end
+
+    def system?
+      SYSTEM_PLAYLISTS.include?(name)
     end
 
     def token
