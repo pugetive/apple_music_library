@@ -43,4 +43,11 @@ RSpec.describe AppleMusicLibrary::Artist do
     expect(artist.genres.any?).to be true
     expect(artist.genres.first).to be_a(AppleMusicLibrary::Genre)
   end
+
+  it "strips leading/trailing whitespace from its name" do
+    string_with_whitespace = "The Returns\n\r"
+    artist = AppleMusicLibrary::Artist.new(string_with_whitespace)
+    expect(artist.name).not_to eq string_with_whitespace
+  end
+
 end

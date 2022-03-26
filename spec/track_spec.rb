@@ -48,4 +48,15 @@ RSpec.describe AppleMusicLibrary::Track do
     expect(@library.tracks(:loved).sample.loved?).to be true
   end
 
+  it "strips leading/trailing whitespace from its name" do
+    string_with_whitespace = "The Returns\n\r"
+
+    track = @sample_track
+    track_info = @sample_track.info
+
+    track_info["Name"] = string_with_whitespace
+    track_with_whitespace = AppleMusicLibrary::Track.new(track_info)
+    expect(track.name).not_to eq string_with_whitespace
+  end
+
 end
