@@ -6,7 +6,7 @@ module AppleMusicLibrary
     @@artists = {}
 
     def initialize(name)
-      @name = name
+      @name = name.strip
       @albums = []
       @tracks = []
     end

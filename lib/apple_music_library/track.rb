@@ -2,7 +2,7 @@ require 'facets'
 
 module AppleMusicLibrary
   class Track
-    attr_reader :artist, :album, :genre
+    attr_reader :artist, :album, :genre, :info
 
                   # 'Artist', The #artist, #album, and #genre methods return objects rather than strings and have methods like #artist_name to retrieve the strings.
                   # 'Album',
@@ -105,7 +105,7 @@ module AppleMusicLibrary
 
     ATTRIBUTES.each do |track_attribute|
       define_method(track_attribute.to_s.snakecase) do
-        @info[track_attribute]
+        @info[track_attribute].class.name == 'String' ? @info[track_attribute].strip : @info[track_attribute]
       end
     end
 
