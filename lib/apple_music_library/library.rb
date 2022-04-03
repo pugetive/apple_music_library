@@ -91,6 +91,14 @@ module AppleMusicLibrary
       Decade.report
     end
 
+    def centuries
+      @centuries ||= Century.all
+    end
+
+    def centuries_report
+      Century.report
+    end
+
     def valid?
       has_tracks?
     end
