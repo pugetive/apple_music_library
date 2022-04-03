@@ -49,6 +49,9 @@ module AppleMusicLibrary
 
         @decade = Decade.find_or_create_for(year_name)
         @decade.add_track(self)
+
+        @century = Century.find_or_create_for(year_name)
+        @century.add_track(self)
       end
 
       @artist.add_track(self)
