@@ -112,6 +112,13 @@ end
 library.decades_report
 
 
+# Print a report on all centuries in the library
+# This is a personal edge case for people who, like me, set the year of any classical piece to the year it was written
+# rather than the year of hte recording.
+# 1800's - 336 tracks on 10 albums
+# 1900's - 816 tracks on 16 albums
+library.decades_report
+
 
 ```
 All stored attributes are available via snake_cased methods on `Track` and `Playlist`. However, note that `#artist`, `#album`, and `#genre` are special cases, returning Ruby objects rather than their associated string values. Methods to return the string versions of these track attributes are provided as `track.artist_name`, `track.album_name`, and `track.genre_name`.
