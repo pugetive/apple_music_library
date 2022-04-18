@@ -8,7 +8,7 @@ module AppleMusicLibrary
 
     def initialize(album_name, artist)
       @artist = artist
-      super
+      super(album_name)
     end
 
     def self.all
