@@ -42,4 +42,11 @@ RSpec.describe AppleMusicLibrary::Playlist do
     end
   end
 
+  it "associates each track with its album" do
+    @library.playlists.sample.tracks.each do |track|
+      expect(track.album).to be_a(AppleMusicLibrary::Album)
+      expect(track.album.name).to match(/\w+/)
+    end
+  end
+
 end
