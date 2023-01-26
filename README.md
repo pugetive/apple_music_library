@@ -117,7 +117,7 @@ library.decades_report
 # rather than the year of hte recording.
 # 1800's - 336 tracks on 10 albums
 # 1900's - 816 tracks on 16 albums
-library.decades_report
+library.centuries_report
 
 
 ```
