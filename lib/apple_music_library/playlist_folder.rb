@@ -38,10 +38,10 @@ module AppleMusicLibrary
     end
 
     def playlists
-      Playlist.all.select{|p| p.parent_persistent_id == id}
+      AppleMusicLibrary::Playlist.all.select{|p| p.parent_persistent_id == id}
     end
 
-    Playlist::ATTRIBUTES.each do |attribute|
+    AppleMusicLibrary::Playlist::ATTRIBUTES.each do |attribute|
       define_method(attribute.to_s.snakecase) do
         info[attribute]
       end
