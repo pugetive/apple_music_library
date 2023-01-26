@@ -3,6 +3,10 @@
 ## [Unreleased]
 - Ability to print out playlist folder hierarchy
 
+## 0.14.1 - 2022-04-18
+### Fixed
+- Fixed bug where albums were created with blank name values in some cases
+
 ## 0.14.0 - 2022-04-03
 ### Added
 - Added Century model to retrieve track and album info per century (useful if you set classical pieces to their year of authorship rather than year of release)
